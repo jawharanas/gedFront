@@ -6,23 +6,30 @@ import Homepage from './components/Homepage'
 import Callback from './components/Callback'
 import EmployeeList from './components/EmployeeList'
 import ManagersList from './components/ManagersList'
-
+import Layout from './components/Layout'
+import Documents from './components/Documents'
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        
-        <Route index element={<Homepage/>}/>
-        <Route  path='/login' element={<Login/>}/>
-        <Route  path='/callback' element={<Callback/>}/>
-        <Route path='/EmployeeList'element={<EmployeeList/>}/>
-        <Route path='/ManagersList'element={<ManagersList/>}/>
-        
-      
-      </Routes>
-    </BrowserRouter>
+   <>
+     <BrowserRouter>
+    
+       <Routes>
+         
+       <Route path="/" element={<Layout />}>
+       <Route index element={<Homepage />} />
+         <Route  path='/callback' element={<Callback/>}/>
+         <Route path='/EmployeeList'element={<EmployeeList/>}/>
+         <Route path='/ManagersList'element={<ManagersList/>}/>
+         <Route path='/documents'element={<Documents/>}/>
+      </Route>
+         <Route  path='/login' element={<Login/>}/>
+         
+       
+       </Routes>
+     </BrowserRouter>
+   </>
   )
 }
 

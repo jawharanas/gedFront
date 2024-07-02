@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "firstName": "Youssef",
+      "lastName": "El Amrani",
+      "email": "youssef.elamrani@redal.ma",
+      "department": "Marketing"
+    },
+    {
+      "id": 2,
+      "firstName": "Fatima",
+      "lastName": "Benali",
+      "email": "fatima.benali@redal.ma",
+      "department": "Finance"
+    },
+    {
+      "id": 3,
+      "firstName": "Mohammed",
+      "lastName": "Tazi",
+      "email": "mohammed.tazi@redal.ma",
+      "department": "IT"
+    },
+    {
+      "id": 4,
+      "firstName": "Nadia",
+      "lastName": "Bouazzaoui",
+      "email": "nadia.bouazzaoui@redal.ma",
+      "department": "Ressources humaines"
+    },
+    {
+      "id": 5,
+      "firstName": "Hassan",
+      "lastName": "El Fassi",
+      "email": "hassan.elfassi@redal.ma",
+      "department": "Ressources humaines" 
+    }
+    ]
