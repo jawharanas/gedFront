@@ -6,7 +6,7 @@ const Homepage = () => {
     <Navbar/>
     <div>
      
-      Welcome to the Homepage
+      Welcome to the Homepage from simo
       
     </div>
     </>
