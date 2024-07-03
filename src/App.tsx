@@ -8,6 +8,7 @@ import EmployeeList from './components/EmployeeList'
 import ManagersList from './components/ManagersList'
 import Layout from './components/Layout'
 import Documents from './components/Documents'
+import Dashboard from './components/Dashboard'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
          <Route path='/EmployeeList'element={<EmployeeList/>}/>
          <Route path='/ManagersList'element={<ManagersList/>}/>
          <Route path='/documents'element={<Documents/>}/>
+         <Route path='/dashboards'element={<Dashboard/>}/>
       </Route>
          <Route  path='/login' element={<Login/>}/>
          
