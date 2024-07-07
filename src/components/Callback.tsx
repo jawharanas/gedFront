@@ -37,7 +37,7 @@ const Callback: React.FC = () => {
           localStorage.setItem("id_token", id_token);
           localStorage.setItem("refresh_token", refresh_token);
           // Navigate to a protected route or home page after successful login
-          navigate("/");
+          navigate("/chooseDepartment");
         } catch (error: any) {
           console.error(
             "Error fetching tokens:",
