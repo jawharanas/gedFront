@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useAuthService } from "../Services/AuhtenticationService";
 
+import { Link } from "react-router-dom";
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -93,6 +94,12 @@ const Login: React.FC = () => {
             {" "}
             Login
           </button>
+          <p className="mt-4 text-center">
+            Vous n'avez pas de compte ?{" "}
+            <Link to="/register" className="text-blue-500 hover:underline">
+              S'inscrire
+            </Link>
+          </p>
         </form>
       </div>
       {error && (

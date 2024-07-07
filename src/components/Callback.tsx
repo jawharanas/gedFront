@@ -24,6 +24,11 @@ const Callback: React.FC = () => {
               redirect_uri: "http://localhost:5173/callback",
               grant_type: "authorization_code",
               code: code,
+            },
+            {
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
             }
           );
           const { access_token, id_token, refresh_token } = response.data;

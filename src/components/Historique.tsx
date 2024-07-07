@@ -11,10 +11,10 @@ interface Document {
 }
 
 const mockDocuments: Document[] = [
-  { id: '1', nom: 'Rapport Mensuel', type: 'pdf', dateUpload: '2024-03-01 14:30', taille: '2.5 MB', utilisateur: 'Marie Dubois' },
-  { id: '2', nom: 'Présentation Client', type: 'word', dateUpload: '2024-02-28 09:15', taille: '5.1 MB', utilisateur: 'Jean Martin' },
-  { id: '3', nom: 'Analyse Financière', type: 'excel', dateUpload: '2024-02-27 16:45', taille: '1.8 MB', utilisateur: 'Sophie Lefebvre' },
-  { id: '4', nom: 'Contrat de Service', type: 'pdf', dateUpload: '2024-02-26 11:20', taille: '3.2 MB', utilisateur: 'Pierre Durand' },
+  { id: '1', nom: 'Rapport Mensuel', type: 'pdf', dateUpload: '2024-03-01 14:30', taille: '2.5 MB', utilisateur: 'Fatima Benali' },
+  { id: '2', nom: 'Présentation Client', type: 'word', dateUpload: '2024-02-28 09:15', taille: '5.1 MB', utilisateur: 'Hassan El Fassi' },
+  { id: '3', nom: 'Analyse Financière', type: 'excel', dateUpload: '2024-02-27 16:45', taille: '1.8 MB', utilisateur: 'Anas Benmina' },
+  { id: '4', nom: 'Contrat de Service', type: 'pdf', dateUpload: '2024-02-26 11:20', taille: '3.2 MB', utilisateur: 'Fatima Benali' },
 ];
 
 const getIconForDocType = (type: string) => {

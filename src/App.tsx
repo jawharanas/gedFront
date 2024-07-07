@@ -9,6 +9,8 @@ import ManagersList from './components/ManagersList'
 import Layout from './components/Layout'
 import Documents from './components/Documents'
 import Dashboard from './components/Dashboard'
+import Register from './components/Registre'
+import ProtectedRoute from './components/ProtectedRoutes'
 
 function App() {
 
@@ -25,8 +27,12 @@ function App() {
          <Route path='/ManagersList'element={<ManagersList/>}/>
          <Route path='/documents'element={<Documents/>}/>
          <Route path='/dashboards'element={<Dashboard/>}/>
+         <Route element={<ProtectedRoute />}></Route>
       </Route>
          <Route  path='/login' element={<Login/>}/>
+         <Route  path='/Register' element={<Register/>}/>
+
+
          
        
        </Routes>
