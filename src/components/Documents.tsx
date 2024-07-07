@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaSearch, FaUpload, FaFile, FaTrash } from "react-icons/fa";
+import { FaSearch, FaUpload, FaFile, FaTrash, FaDownload } from "react-icons/fa";
 
 type Document = {
   id: number;
   name: string;
   uploadDate: string;
-  user  : string;
+  user: string;
   size: string;
+  content: string; // Added this to simulate file content
 };
 
 const initialDocuments: Document[] = [
@@ -16,6 +17,7 @@ const initialDocuments: Document[] = [
     uploadDate: "2023-12-15",
     user: "Karim El Mansouri",
     size: "2.5 MB",
+    content: "Contenu du rapport financier 2023",
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ const initialDocuments: Document[] = [
     uploadDate: "2023-11-30",
     user: "Amina Benjelloun",
     size: "5.1 MB",
+    content: "Contenu de la présentation marketing Q4",
   },
   {
     id: 3,
@@ -30,6 +33,7 @@ const initialDocuments: Document[] = [
     uploadDate: "2023-12-05",
     user: "Youssef Tahiri",
     size: "1.2 MB",
+    content: "Contenu du contrat client XYZ",
   },
   {
     id: 4,
@@ -37,14 +41,14 @@ const initialDocuments: Document[] = [
     uploadDate: "2023-12-10",
     user: "Leila Ziani",
     size: "3.7 MB",
+    content: "Contenu du plan stratégique 2024",
   },
 ];
 
 const DocumentsList: React.FC = () => {
   const [documents, setDocuments] = useState<Document[]>(initialDocuments);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredDocuments, setFilteredDocuments] =
-    useState<Document[]>(documents);
+  const [filteredDocuments, setFilteredDocuments] = useState<Document[]>(documents);
 
   useEffect(() => {
     const results = documents.filter((doc) =>
@@ -70,9 +74,30 @@ const DocumentsList: React.FC = () => {
         uploadDate: new Date().toISOString().split("T")[0],
         size: `${(file.size / (1024 * 1024)).toFixed(2)} MB`,
         user: "Anas Benmina",
+        content: "Contenu du fichier téléchargé", // Placeholder content
       };
       setDocuments([...documents, newDocument]);
     }
+  };
+
+  const handleDownload = (doc: Document) => {
+    // Create a Blob with the document's content
+    const blob = new Blob([doc.content], { type: "text/plain" });
+    
+    // Create a temporary URL for the Blob
+    const url = window.URL.createObjectURL(blob);
+    
+    // Create a temporary anchor element
+    const a = document.createElement("a");
+    a.style.display = "none";
+    a.href = url;
+    a.download = doc.name;
+    
+    // Append the anchor to the body, trigger the download, and remove the anchor
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
   };
 
   return (
@@ -100,18 +125,17 @@ const DocumentsList: React.FC = () => {
             className="hidden"
             onChange={handleFileUpload}
           />
-         
         </div>
       </div>
-     <div className="flex  justify-end">
-         <label
-               htmlFor="file-upload"
-               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 my-4 px-4 rounded inline-flex items-center cursor-pointer"
-             >
-               <FaUpload className="mr-2" />
-               Télécharger un document
-             </label>
-     </div>
+      <div className="flex justify-end">
+        <label
+          htmlFor="file-upload"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 my-4 px-4 rounded inline-flex items-center cursor-pointer"
+        >
+          <FaUpload className="mr-2" />
+          Charger un document
+        </label>
+      </div>
 
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
@@ -151,11 +175,16 @@ const DocumentsList: React.FC = () => {
                 <td className="px-4 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-500">{doc.user}</div>
                 </td>
-             
                 <td className="px-4 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-500">{doc.size}</div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm font-medium">
+                  <button
+                    onClick={() => handleDownload(doc)}
+                    className="text-blue-600 hover:text-blue-900 mr-3"
+                  >
+                    <FaDownload size={18} />
+                  </button>
                   <button
                     onClick={() => handleDelete(doc.id)}
                     className="text-red-600 hover:text-red-900"
